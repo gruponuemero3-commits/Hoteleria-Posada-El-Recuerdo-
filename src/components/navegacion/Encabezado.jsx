@@ -34,7 +34,7 @@ const Encabezado = () => {
     const esLogin = location.pathname === "/login";
     const esHabitacion =
         location.pathname === "/habitacion" &&
-        localStorage.getItem("usuario-supabase") === null;
+        localStorage.getItem("usuario-supabase") ;
 
     //Contenido del menu
     let contenidoMenu;
