@@ -8,7 +8,6 @@ const ModalRegistroHabitacion = ({
   manejoCambioInput,
   agregarHabitacion,
 }) => {
-
   const [deshabilitado, setDeshabilitado] = useState(false);
 
   const handleRegistrar = async () => {
@@ -18,11 +17,6 @@ const ModalRegistroHabitacion = ({
     setDeshabilitado(false);
   };
 
-  const esValido =
-    nuevaHabitacion.numero_habitacion &&
-    nuevaHabitacion.tipo_habitacion.trim() !== "" &&
-    nuevaHabitacion.precio;
-
   return (
     <Modal
       show={mostrarModal}
@@ -30,16 +24,21 @@ const ModalRegistroHabitacion = ({
       backdrop="static"
       centered
     >
-      <Modal.Header closeButton>
-        <Modal.Title>Agregar Habitación</Modal.Title>
+      {/* ENCABEZADO CON COLOR */}
+      <Modal.Header closeButton className="bg-primary text-white">
+        <Modal.Title>
+          <i className="bi bi-door-open-fill me-2"></i>
+          Agregar Habitación
+        </Modal.Title>
       </Modal.Header>
 
-      <Modal.Body>
+      <Modal.Body className="bg-light">
         <Form>
-
-          {/* 🔢 Número */}
+          {/* Número */}
           <Form.Group className="mb-3">
-            <Form.Label>Número</Form.Label>
+            <Form.Label className="fw-bold text-primary">
+              Número
+            </Form.Label>
             <Form.Control
               type="number"
               name="numero_habitacion"
@@ -49,9 +48,11 @@ const ModalRegistroHabitacion = ({
             />
           </Form.Group>
 
-          {/* 🏨 Tipo */}
+          {/* Tipo */}
           <Form.Group className="mb-3">
-            <Form.Label>Tipo de Habitación</Form.Label>
+            <Form.Label className="fw-bold text-primary">
+              Tipo de Habitación
+            </Form.Label>
             <Form.Select
               name="tipo_habitacion"
               value={nuevaHabitacion.tipo_habitacion || ""}
@@ -65,40 +66,50 @@ const ModalRegistroHabitacion = ({
             </Form.Select>
           </Form.Group>
 
-          {/* 🛏️ Camas + Clima en fila */}
+          {/* Camas + Clima */}
           <Row>
             <Col>
               <Form.Group className="mb-3">
-                <Form.Label>Camas</Form.Label>
-                <Form.Control
-                  type="text"
+                <Form.Label className="fw-bold text-primary">
+                  Camas
+                </Form.Label>
+                <Form.Select
                   name="tipo_camas"
                   value={nuevaHabitacion.tipo_camas || ""}
                   onChange={manejoCambioInput}
-                  placeholder="Ej: 2 camas"
-                />
+                >
+                  <option value="">Seleccione...</option>
+                  <option value="matrimonial">Matrimonial</option>
+                  <option value="unipersonal">Unipersonal</option>
+                </Form.Select>
               </Form.Group>
             </Col>
 
             <Col>
               <Form.Group className="mb-3">
-                <Form.Label>Clima</Form.Label>
+                <Form.Label className="fw-bold text-primary">
+                  Clima
+                </Form.Label>
                 <Form.Select
                   name="tipo_clima"
                   value={nuevaHabitacion.tipo_clima || ""}
                   onChange={manejoCambioInput}
                 >
                   <option value="">Seleccione...</option>
-                  <option value="Aire acondicionado">Aire acondicionado</option>
+                  <option value="Aire acondicionado">
+                    Aire acondicionado
+                  </option>
                   <option value="Ventilador">Ventilador</option>
                 </Form.Select>
               </Form.Group>
             </Col>
           </Row>
 
-          {/* 💰 Precio */}
+          {/* Precio */}
           <Form.Group className="mb-3">
-            <Form.Label>Precio ($)</Form.Label>
+            <Form.Label className="fw-bold text-primary">
+              Precio ($)
+            </Form.Label>
             <Form.Control
               type="number"
               step="0.01"
@@ -109,9 +120,11 @@ const ModalRegistroHabitacion = ({
             />
           </Form.Group>
 
-          {/* 🟢 Estado */}
+          {/* Estado */}
           <Form.Group className="mb-3">
-            <Form.Label>Estado</Form.Label>
+            <Form.Label className="fw-bold text-primary">
+              Estado
+            </Form.Label>
             <Form.Select
               name="estado"
               value={nuevaHabitacion.estado || ""}
@@ -122,19 +135,25 @@ const ModalRegistroHabitacion = ({
               <option value="Ocupado">Ocupado</option>
             </Form.Select>
           </Form.Group>
-
         </Form>
       </Modal.Body>
 
-      <Modal.Footer>
-        <Button variant="secondary" onClick={() => setMostrarModal(false)}>
+      {/* PIE CON COLOR */}
+      <Modal.Footer className="bg-white">
+        <Button
+          variant="secondary"
+          onClick={() => setMostrarModal(false)}
+        >
           Cancelar
         </Button>
 
         <Button
-          variant="primary"
+          variant="success"
           onClick={handleRegistrar}
-          disabled={nuevaHabitacion.numero_habitacion.trim() === "" || deshabilitado}
+          disabled={
+            nuevaHabitacion.numero_habitacion.trim() === "" ||
+            deshabilitado
+          }
         >
           Guardar
         </Button>
