@@ -97,7 +97,14 @@ const TarjetaHabitacion = ({
                                             xs={5}
                                             className="d-flex flex-column align-items-end justify-content-center text-end"
                                         >
-                                            <div className="badge bg-secondary">
+                                            <div
+                                                className={`badge ${habitacion.estado.toLowerCase() === "ocupada"
+                                                        ? "bg-danger"
+                                                        : habitacion.estado.toLowerCase() === "disponible"
+                                                            ? "bg-success"
+                                                            : "bg-secondary"
+                                                    }`}
+                                            >
                                                 {habitacion.estado}
                                             </div>
                                         </Col>
