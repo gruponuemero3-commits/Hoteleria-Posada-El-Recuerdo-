@@ -91,16 +91,15 @@ const TarjetaHabitacion = ({
                                             <div className="small text-muted text-truncate">
                                                 ${habitacion.precio}
                                             </div>
-                                            <div className="badge bg-secondary">
-                                                {habitacion.estado}
-                                            </div>
                                         </Col>
 
                                         <Col
                                             xs={5}
                                             className="d-flex flex-column align-items-end justify-content-center text-end"
                                         >
-                                            <div className="badge bg-success">Activa</div>
+                                            <div className="badge bg-secondary">
+                                                {habitacion.estado}
+                                            </div>
                                         </Col>
                                     </Row>
                                 </Card.Body>

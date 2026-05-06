@@ -11,7 +11,7 @@ import Inicio from "./views/Inicio";
 import Huesped from "./views/Huesped";
 import Habitacion from "./views/Habitacion";
 import Reserva from "./views/Reserva";
-import Empleado from "./views/Empleado";
+import Recepcion from "./views/Recepcion";
 import Login from "./views/Login";
 import Pagina404 from "./views/Pagina404";
 
@@ -31,7 +31,7 @@ const App = () => {
           <Route path="/huesped" element={<Huesped />} /> {/* Ruta pública */}
           <Route path="/habitacion" element={<RutaProtegida><Habitacion /></RutaProtegida>} />
           <Route path="/reserva" element={<RutaProtegida><Reserva /></RutaProtegida>} />
-          <Route path="/empleado" element={<RutaProtegida><Empleado /></RutaProtegida>} />
+          <Route path="/recepcion" element={<RutaProtegida><Recepcion /></RutaProtegida>} />
 
 
           {/* Página no encontrada */}

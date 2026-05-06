@@ -1,4 +1,4 @@
-const Empleado = () => {
+const Recepcion = () => {
   return (
     <div className="container mt-5">
       <h1>Empleado FUNCIONA</h1>
@@ -10,4 +10,4 @@ const Empleado = () => {
   );
 };
 
-export default Empleado;
+export default Recepcion;

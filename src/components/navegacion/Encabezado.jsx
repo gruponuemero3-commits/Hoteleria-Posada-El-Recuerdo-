@@ -93,11 +93,11 @@ const Encabezado = () => {
                         </Nav.Link>
 
                          <Nav.Link
-                            onClick={() => manejarNavegacion("/empleado")}
+                            onClick={() => manejarNavegacion("/recepcion")}
                             className={mostrarMenu ? "color-texto-marca" : "text-white"}
                         >
                             {mostrarMenu ? <i className="bi bi-person-workspace me-2"></i> : null}
-                            <strong>Empleado</strong>
+                            <strong>Recepcion</strong>
                         </Nav.Link>
 
                         {/*Opción para ir al habtacion publico desde admin*/}
